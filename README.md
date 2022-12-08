@@ -9,6 +9,7 @@ Solutions of quizes at <https://adventofcode.com/2022>
 - Day 5: [quiz](https://adventofcode.com/2022/day/5) - [solution](5)
 - Day 6: [quiz](https://adventofcode.com/2022/day/6) - [solution](6)
 - Day 7: [quiz](https://adventofcode.com/2022/day/7) - [solution](7)
+- Day 8: [quiz](https://adventofcode.com/2022/day/8) - [solution](8)
 
 ---
 
