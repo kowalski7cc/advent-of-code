@@ -524,3 +524,5 @@ $RECYCLE.BIN/
 
 **/input.txt
 **/sample.txt
+**/sample-*.txt
+**/day-desc.txt
