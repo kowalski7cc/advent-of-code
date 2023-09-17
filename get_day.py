@@ -39,7 +39,7 @@ def main():
     if not os.path.isdir(day_root):
         os.makedirs(day_root)
 
-    desc_req = requests.get(f"https://adventofcode.com/{year}/day/{day}")
+    desc_req = requests.get(f"https://adventofcode.com/{year}/day/{day}", timeout=10)
     try:
         desc_req.raise_for_status()
     except requests.exceptions.HTTPError:
@@ -47,15 +47,13 @@ def main():
             log.error("Day/Year not found")
             exit(1)
     tree = html.fromstring(desc_req.text)
-    article = tree.xpath("//html/body/main/article")
+    article: html.HtmlElement = tree.xpath("//html/body/main/article")
     day_desc_path = os.path.join(day_root, "day-desc.txt")
     if not os.path.exists(day_desc_path):
-        with open(os.path.join(day_root, "day-desc.txt"), "w") as f:
-            f.write(
-                html2text.html2text(
-                    html.tostring(article[0], encoding="utf-8").decode("utf-8")
-                )
-            )
+        with open(
+            os.path.join(day_root, "day-desc.txt"), "w", encoding="utf-8"
+        ) as file:
+            file.write(html2text.html2text(html.tostring(article[0], encoding="utf-8")))
             log.info("Day description downloaded")
 
     code_blocks = tree.xpath("//html/body/main/article/pre/code")
@@ -70,7 +68,7 @@ def main():
     input_req = requests.get(
         f"https://adventofcode.com/2022/day/{day}/input",
         cookies={"session": session},
-        timeout=30,
+        timeout=10,
     )
 
     input_req.raise_for_status()
