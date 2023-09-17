@@ -53,7 +53,7 @@ def main():
         with open(
             os.path.join(day_root, "day-desc.txt"), "w", encoding="utf-8"
         ) as file:
-            file.write(html2text.html2text(html.tostring(article[0], encoding="utf-8")))
+            file.write(html2text.html2text(str(html.tostring(article[0]))))
             log.info("Day description downloaded")
 
     code_blocks = tree.xpath("//html/body/main/article/pre/code")
