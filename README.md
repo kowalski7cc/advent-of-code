@@ -24,7 +24,7 @@ Solutions of quizes at <https://adventofcode.com/>
 
 ---
 
-Happy holiday!
+Happy holidays!
 
 ☃️🎄🎅🍪❄️🎁☃️🎄🎅🍪❄️🎁☃️🎄🎅🍪❄️🎁☃️🎄
 
