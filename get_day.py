@@ -124,7 +124,7 @@ def main():
 
         import subprocess
 
-        subprocess.run(["npm", "install" , "-D", "@types/node"], cwd=day_root)
+        subprocess.run(["npm", "install", "-D", "@types/node"], cwd=day_root)
 
         # create tsconfig.json
         with open(
@@ -133,14 +133,36 @@ def main():
             file.write(tsconfig_json)
 
         with open(os.path.join(day_root, "solution.ts"), "w", encoding="utf-8") as file:
-            file.write(textwrap.dedent(
-                """\
+            file.write(
+                textwrap.dedent(
+                    """\
                 import * as fs from 'fs';
                 import * as path from 'path';
                 import * as util from 'util';
 
                 const input = fs.readFileSync(path.join(__dirname, 'input.txt'), 'utf-8');"""
-            ))
+                )
+            )
+
+    if opts.language in ["java", "j"]:
+        with open(
+            os.path.join(day_root, "Solution.java"), "w", encoding="utf-8"
+        ) as file:
+            file.write(
+                textwrap.dedent(
+                    """\
+                import java.io.File;
+                import java.io.IOException;
+                import java.nio.file.Files;
+
+                class Solution {
+                    public static void main(String[] args) throws IOException {
+                        var lines = Files.readAllLines(new File("input.txt").toPath());
+                        System.out.println(lines);
+                    }
+                }"""
+                )
+            )
 
 
 if __name__ == "__main__":
