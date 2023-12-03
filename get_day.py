@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
 package_json = """{
-    "name": "aoc-2022",
+    "name": "aoc",
     "version": "1.0.0",
     "description": "",
     "main": "solution.js",
@@ -59,7 +59,7 @@ def main():
     session = os.environ["AOC_SESSION"]
     aoc_root = os.path.curdir
     # Check folder day
-    day_root = os.path.join(aoc_root, str(year), str(day).zfill(1))
+    day_root = os.path.join(aoc_root, str(year), str(day).zfill(2))
     if not os.path.isdir(day_root):
         os.makedirs(day_root)
 
@@ -90,7 +90,7 @@ def main():
         log.info("Saved code block sample %s", index + 1)
 
     input_req = requests.get(
-        f"https://adventofcode.com/2022/day/{day}/input",
+        f"https://adventofcode.com/{year}/day/{day}/input",
         cookies={"session": session},
         timeout=10,
     )
