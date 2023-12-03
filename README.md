@@ -2,6 +2,10 @@
 
 Solutions of quizes at <https://adventofcode.com/>
 
+## Year 2023
+
+- Day 01: [quiz](https://adventofcode.com/2023/day/1) - [solution](2023/01)
+
 ## Year 2022
 
 - Day 01: [quiz](https://adventofcode.com/2022/day/1) - [solution](2022/01)
